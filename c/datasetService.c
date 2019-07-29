@@ -131,8 +131,8 @@ static int serveDataset(HttpService *service, HttpResponse *response){
   }
   else if (!strcmp(request->method, methodDELETE)){
     if (!isMember) {
-      respondWithJsonError(response, "Dataset deletion is not supported", 501, "Not Implemented");
-      return -1;
+      removeDataset(response, dsName);
+      printf("here\n");
     }
     else {
       respondWithJsonError(response, "Dataset member deletion is not supported", 501, "Not Implemented");
